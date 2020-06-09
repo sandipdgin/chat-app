@@ -1,0 +1,40 @@
+<div class="form-wrap">
+  <h3>Login</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="userLogin()" novalidate>
+    <div>
+      <label for="userEmail">Email:</label>
+      <input
+        id="userEmail"
+        type="text"
+        placeholder="Enter your email id"
+        formControlName="email"
+      />
+    </div>
+    <span
+      *ngIf="
+        loginForm.get('email').errors &&
+        (loginForm.get('email').touched || loginForm.get('email').dirty)
+      "
+    >
+      <span *ngIf="loginForm.get('email').errors.required"
+        >email is required.</span
+      >
+    </span>
+
+    <div>
+      <label for="userPass">Password:</label>
+      <input
+        id="userPass"
+        type="password"
+        placeholder="Enter password"
+        formControlName="password"
+      />
+    </div>
+
+    <div>
+      <!-- <input type="submit" [disabled]="!registerForm.valid">Register</button> -->
+      <input type="submit" value="Login" />
+      <button (click)="loginForm.reset()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,44 @@
+<div id="chat-applicaton">
+  <h2>Chat Application - Angular client</h2>
+  <div id="chat-window">
+    <div id="output" *ngFor="let data of output">
+      <p>
+        <strong>{{ data.handle }} : </strong>{{ data.message }}
+      </p>
+    </div>
+    <div id="feedback">
+      <p>{{ feedback }}</p>
+    </div>
+  </div>
+  <!-- <input id="handle" type="text" [(ngModel)]="userName" placeholder="Handle" /> -->
+  <div class="user-name">{{ userName }}</div>
+  <!-- <input
+    id="message"
+    type="text"
+    [(ngModel)]="message"
+    placeholder="Message"
+    autocomplete="off"
+    (keypress)="messageTyping()"
+  /> -->
+  <form [formGroup]="messageForm" (ngSubmit)="sendMessage()" novalidate>
+    <input
+      id="message"
+      type="text"
+      formControlName="userMessage"
+      placeholder="Message"
+      autocomplete="off"
+      (keypress)="messageTyping()"
+    />
+    <button type="submit" id="send" style="cursor: pointer;">
+      Send
+    </button>
+  </form>
+  <!-- <button
+    type="button"
+    id="send"
+    style="cursor: pointer;"
+    (click)="sendMessage()"
+  >
+    Send
+  </button> -->
+</div>
