@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ChatComponent implements OnInit {
   title = 'Websocket Angular client ';
-  userName = 'sandip';
+  userName = '';
   message: string;
   output: any[] = [];
   feedback: string;
@@ -19,21 +19,25 @@ export class ChatComponent implements OnInit {
     userMessage: new FormControl(''),
   });
 
-  constructor(private webSocketService: WebSocketService) {
-    this.userDetails = JSON.parse(localStorage.getItem('userdetails'));
-    // console.log('chat component', this.userDetails);
-    if (this.userDetails) {
-      this.userName = this.userDetails.fName;
-    }
-  }
+  constructor(private webSocketService: WebSocketService) {}
 
   ngOnInit(): void {
     this.webSocketService
       .listen('typing')
       .subscribe((data) => this.updateFeedback(data));
-    this.webSocketService
-      .listen('chat')
-      .subscribe((data) => this.updateMessage(data));
+    this.webSocketService.listen('chat').subscribe((data) => {
+      console.log('data >', data);
+      this.updateMessage(data);
+    });
+    this.setUserName();
+  }
+
+  setUserName(): void {
+    this.userDetails = JSON.parse(localStorage.getItem('userdetails'));
+    // console.log('chat component', this.userDetails);
+    if (this.userDetails) {
+      this.userName = this.userDetails.fName;
+    }
   }
 
   messageTyping(): void {

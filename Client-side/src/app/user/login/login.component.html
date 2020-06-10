@@ -1,4 +1,53 @@
-<div class="form-wrap">
+<!-- <div class="container">
+  <div class="row"></div>
+</div> -->
+
+<form
+  class="form-signin"
+  [formGroup]="loginForm"
+  (ngSubmit)="userLogin()"
+  novalidate
+>
+  <h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
+  <label for="userEmail" class="sr-only">Email address</label>
+  <input
+    type="text"
+    id="userEmail"
+    class="form-control"
+    placeholder="Email address"
+    formControlName="email"
+    required=""
+    autofocus=""
+  />
+  <div
+    *ngIf="
+      loginForm.get('email').errors &&
+      (loginForm.get('email').touched || loginForm.get('email').dirty)
+    "
+  >
+    <span *ngIf="loginForm.get('email').errors.required"
+      >email is required.</span
+    >
+  </div>
+  <label for="userPass" class="sr-only">Password</label>
+  <input
+    type="password"
+    id="userPass"
+    class="form-control"
+    placeholder="Password"
+    formControlName="password"
+    required=""
+  />
+  <div class="checkbox mb-3">
+    <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">
+    Sign in
+  </button>
+  <p class="mt-5 mb-3 text-muted">© sandipg 2020</p>
+</form>
+
+<!-- <div class="form-wrap">
   <h3>Login</h3>
   <form [formGroup]="loginForm" (ngSubmit)="userLogin()" novalidate>
     <div>
@@ -32,9 +81,8 @@
     </div>
 
     <div>
-      <!-- <input type="submit" [disabled]="!registerForm.valid">Register</button> -->
       <input type="submit" value="Login" />
       <button (click)="loginForm.reset()">Cancel</button>
     </div>
   </form>
-</div>
+</div> -->

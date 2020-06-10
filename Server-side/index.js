@@ -27,6 +27,9 @@ app.use(cors());
 // route middleware
 app.use("/api/user", userRoutes);
 
+// front end app path
+app.use(express.static("public"));
+
 const server = app.listen(3030, () => {
   console.log(`App listening on port 3030`);
 });

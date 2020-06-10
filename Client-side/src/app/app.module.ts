@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { from } from 'rxjs';
 import { ChatComponent } from './chat/chat.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, ChatComponent],
@@ -19,6 +20,7 @@ import { ChatComponent } from './chat/chat.component';
     UserRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

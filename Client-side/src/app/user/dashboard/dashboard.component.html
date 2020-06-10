@@ -1,2 +1,29 @@
-<h1>hi</h1>
-<p>dashboard works!</p>
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1>About Application</h1>
+    <p class="lead text-muted">
+      This chat application created by Sandip Gadhave and <br />you can register
+      in this application and login. You can do group chat using this
+      application.
+      <br />
+      Currently, Sandip Gadhave working as a MEAN Stack developer. He having
+      previous experience in UI/UX design and development. <br />
+      You can connect with him by <br />
+      email: sandipdgin@yahoo.com | Mobile: +91 98202 94996
+    </p>
+    <p>
+      <a
+        class="btn btn-primary my-2"
+        [routerLink]="['/user/login']"
+        routerLinkActive="active"
+        >Login in Application</a
+      >&nbsp;
+      <a
+        class="btn btn-secondary my-2"
+        [routerLink]="['/user/register']"
+        routerLinkActive="active"
+        >Register your self for login</a
+      >
+    </p>
+  </div>
+</section>

@@ -43,7 +43,7 @@ export class UserService {
     this.loginStatus.next(false);
     localStorage.removeItem('token');
     localStorage.removeItem('userdetails');
-    this.router.navigate(['/user/login']);
+    this.router.navigate(['/user/home']);
   }
 
   loggedIn() {

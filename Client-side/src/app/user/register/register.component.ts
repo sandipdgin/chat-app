@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -17,14 +18,14 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {}
 
   userRegister() {
     if (this.registerForm.valid) {
       this.userService.register(this.registerForm.value).subscribe((res) => {
-        this.registerForm.reset();
+        this.router.navigate(['user/login']);
       });
     }
   }
